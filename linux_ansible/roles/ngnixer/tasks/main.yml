@@ -1,0 +1,8 @@
+  - name: Stopping nginx service
+    become: true
+    service: name=nginx state=stopped
+  - name: Remove nginx package
+    become: true
+    apt: name=nginx state=absent
+
+

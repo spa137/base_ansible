@@ -1,0 +1,10 @@
+- name: print to stdout
+  command: uptime
+  register: h
+
+- debug: msg="{{ h.stdout }}"
+- debug: msg=all
+- debug: msg="{{ h }}"
+
+
+

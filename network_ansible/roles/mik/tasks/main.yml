@@ -1,0 +1,11 @@
+  connection: network_cli
+  gather_facts: false
+
+  - name: Set external DNS, disable remote queries
+    routeros_command:
+      commands: /ip dns set servers=77.88.8.8
+  - name: Set adrress list
+    routeros_command: 
+      commands: /ip firewall address-list add list=drop_traffic address=172.16.0.0/12
+
+

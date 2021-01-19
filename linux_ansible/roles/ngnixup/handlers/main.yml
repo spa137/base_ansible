@@ -1,0 +1,11 @@
+   - name: Not Run
+     become: true
+     service: name=nginx state=restarted
+
+
+
+   - name:  Start Nginx
+     become: true
+     service: name=nginx state=started
+
+
