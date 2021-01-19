@@ -1,0 +1,21 @@
+---
+- hosts: all
+  tasks:
+  - name: Copy 
+    copy:
+      src: ./files/install_vagrant.sh
+      dest: /home/$USER/install_vagrant.sh
+      owner: s
+      group: s
+      mode: '0744'
+  - name: Change the working directory 
+    command: vagrant init
+    args:
+      chdir: /home/$USER/
+  - name: install
+    become: yes
+    shell: ./install_vagrant.sh
+    tags:
+      - inst_vagrant
+
+

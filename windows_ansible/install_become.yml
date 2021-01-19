@@ -5,5 +5,5 @@
     win_chocolatey:
       name: officepro2013
     become: yes
-    become_user: Administrator
+    become_user: sw
     become_method: runas

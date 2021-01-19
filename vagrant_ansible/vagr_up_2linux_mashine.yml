@@ -1,0 +1,85 @@
+---
+- hosts: all
+  tasks:
+  - name: Unconditionally reboot the machine with all defaults
+    become: true
+    reboot:
+    tags:
+      - reboot
+  - name: Removing existing folder /home/s/vg1
+    file:
+      path: /home/s/vg1
+      state: absent
+    tags:
+      - rm1
+  - name: Removing existing folder /home/s/vg2
+    file:
+      path: /home/s/vg2
+      state: absent
+    tags:
+      - rm2
+  - name: vagrant global-status --prune
+    command: vagrant global-status --prune
+
+  - name: сreate directory /home/s/vg1
+    file:
+      path=/home/s/vg1
+      mode=0755
+      owner=s
+      group=s
+      state=directory
+    tags:
+      - cr_dir1
+
+  - name: Change the working directory to vg1/ and run the command 
+    command: vagrant init
+    args:
+      chdir: /home/s/vg1/
+
+  - name: сreate directory /home/s/vg2
+    file:
+      path=/home/s/vg2
+      mode=0755
+      owner=s
+      group=s
+      state=directory
+    tags:
+      - cr_dir2
+
+  - name: Change the working directory to vg2/ and run the command 
+    command: vagrant init
+    args:
+      chdir: /home/s/vg2/
+
+
+  - name: Copy file  1
+    copy:
+      src: /files/vagrantfile1
+      dest: /home/s/vg1/Vagrantfile
+      owner: s
+      group: s
+      mode: '0644'
+    tags:
+      - copy1
+  - name: Copy file  2
+    copy:
+      src: /home/files/vagrantfile2
+      dest: /home/s/vg2/Vagrantfile
+      owner: s
+      group: s
+      mode: '0644'
+    tags:
+      - copy1
+
+
+  - name: Change the working directory to vg1/ and run the command 
+    command: vagrant up
+    args:
+      chdir: /home/s/vg1/
+
+  - name: Change the working directory to vg2/ and run the command 
+    command: vagrant up
+    args:
+      chdir: /home/s/vg2/
+
+

@@ -1,0 +1,43 @@
+vagrant init
+эта команда в текущей директории создаст Vagrantfile
+
+vagrant up
+прочитает Vagrantfile
+
+vagrant ssh
+vagrant ssh  идентификатор_или_его часть
+
+подключиться к машине
+(Автоматический проброс порта для ssh (хост - 2222, гость — 22))
+подключиться по SSH под юзером vagrant
+
+vagrant suspend
+vagrant suspend идентификатор_или_его часть
+поставить на паузу
+
+vagrant resume идентификатор_или_его часть
+возобновить работу
+
+vagrant halt
+vagrant halt идентификатор_или_его часть
+выключить
+
+vagrant destroy
+vagrant destroy идентификатор_или_его часть
+удалить машину
+
+vagrant box list
+cписок доступных машин
+
+vagrant box remove имя_машины
+удалить машину, которая есть в списке  vagrant box list
+
+vagrant package
+экспорт машины
+
+
+vagrant global-status
+все виртуальные машины в системе
+
+vagrant global-status --prune
+очистка информации

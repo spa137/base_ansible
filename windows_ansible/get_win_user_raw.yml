@@ -2,8 +2,8 @@
   tasks:
   - name: List user accounts on a Windows system
     raw: Get-WmiObject -Class Win32_UserAccount
-    register: h
+    register: userss
 
-  - debug: msg="{{ h.stdout }}"
+  - debug: msg="{{ userss.stdout }}"
   - debug: msg=all
-  - debug: msg="{{ h }}"
+  - debug: msg="{{ userss.stdout_lines }}"

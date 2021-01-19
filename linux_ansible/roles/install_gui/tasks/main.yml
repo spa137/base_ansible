@@ -1,0 +1,7 @@
+
+    - name: install soft
+      become: true
+      apt: 
+        state: present
+          name:
+           - vagrant
