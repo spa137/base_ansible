@@ -1,0 +1,6 @@
+- hosts: all
+  tasks:
+  - name: List System  error
+    raw: msg sw message
+
+
