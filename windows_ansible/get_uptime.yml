@@ -1,0 +1,6 @@
+- hosts: all
+  tasks:
+  - name: List user accounts on a Windows system
+    raw: systeminfo | find "System Boot Time"
+    register: upt
+  - debug: msg="{{ upt.stdout_lines }}"
